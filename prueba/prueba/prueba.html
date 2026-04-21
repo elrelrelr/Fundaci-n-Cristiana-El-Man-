@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundación Cristiana El Maná</title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- boostrapt icons y 5 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Barra de busqueda -->
+    <section class="search-bar">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i
+              class="bi bi-list"
+              style="color: #ffffff; font-size: xx-large"
+            ></i>
+          </button>
+          <a class="navbar-brand texto Light" href="#">Unimaná</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#seccion-destino"
+                  >Carreras</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#third-section">¿Quiénes somos?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experiencia">Experiencia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contactenos</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="busqueda me-2"
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+              />
+              <button
+                class="empezar-busqueda btn btn-outline-success"
+                type="submit"
+              >
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section class="hero-section" id="hero-section">
+      <div class="content">
+        <h1 class="university-title">
+          <span class="animated-text"> Fundación Cristiana El Maná </span>
+        </h1>
+        <h2 class="subtitle" style="color: white; font-family: 'Montserrat', sans-serif; font-size: 2rem;" id="unimana">Unimaná</h2>
+        <p class="subtitle">¡Un Futuro Brillante Te Espera!<br><span style="font-size: 1.2rem; font-weight: normal;">Más de 15 años formando líderes íntegros en modalidades virtuales y presenciales.</span></p>
+        <div class="button-container">
+          <a href="#seccion-destino" class="futuristic-button">EMPEZAR AHORA</a>
+        </div>
+      </div>
+      <!-- Olas -->
+      <div class="content-two">
+        <svg
+          class="wave"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="100%"
+          height="150px"
+          viewBox="0 0 1600 900"
+          preserveAspectRatio="xMidYMax slice"
+        >
+          <defs>
+            <linearGradient id="bg">
+              <stop
+                offset="0%"
+                style="stop-color: rgba(130, 158, 249, 0.06)"
+              ></stop>
+              <stop
+                offset="50%"
+                style="stop-color: rgba(76, 190, 255, 0.6)"
+              ></stop>
+              <stop
+                offset="100%"
+                style="stop-color: rgba(115, 209, 72, 0.2)"
+              ></stop>
+            </linearGradient>
+            <path
+              id="wave"
+              fill="url(#bg)"
+              d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"
+            />
+          </defs>
+          <g>
+            <use xlink:href="#wave" opacity=".3">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                dur="10s"
+                calcMode="spline"
+                values="270 230; -334 180; 270 230"
+                keyTimes="0; .5; 1"
+                keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                repeatCount="indefinite"
+              />
+            </use>
+            <use xlink:href="#wave" opacity=".6">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                dur="8s"
+                calcMode="spline"
+                values="-270 230;243 220;-270 230"
+                keyTimes="0; .6; 1"
+                keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                repeatCount="indefinite"
+              />
+            </use>
+            <use xlink:href="#wave" opacty=".9">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                dur="6s"
+                calcMode="spline"
+                values="0 230;-140 200;0 230"
+                keyTimes="0; .4; 1"
+                keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                repeatCount="indefinite"
+              />
+            </use>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Segunda Sección -->
+    <section class="second-section" id="seccion-destino">
+      <div class="second-content">
+        <h2 class="second-title">Conozca nuestros programas:</h2>
+        <p class="second-description">
+          Modalidad 100% virtual con calidad internacional. Ofrecemos becas disponibles del 50% - 75%.
+        </p>
+        <div class="container mt-5">
+          <div class="row text-dark text-start">
+            <div class="col-md-6 col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body bg-light rounded">
+                  <h5 class="card-title text-primary mb-3"><i class="bi bi-person-badge fs-4 me-2"></i> Programas Profesionales</h5>
+                  <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Psicología</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Licenciatura en Pedagogía</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Licenciatura en Teología</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Técnica en Enfermería</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Técnica en Veterinaria</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body bg-light rounded">
+                  <h5 class="card-title text-primary mb-3"><i class="bi bi-brain fs-4 me-2"></i> Especializaciones</h5>
+                  <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Neuropsicología Educación</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Psicología Penitenciaria</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Psicología Jurídica</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Sexología y Terapia</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Nutrición Geriátrica</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body bg-light rounded">
+                  <h5 class="card-title text-primary mb-3"><i class="bi bi-award fs-4 me-2"></i> Maestrías</h5>
+                  <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Maestría en Educación</li>
+                     <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Maestría en Teología</li>
+                      <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Maestría en Salud Publica</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+<div class="col-md-6 col-lg-6 mb-4">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body bg-light rounded">
+                  <h5 class="card-title text-primary mb-3"><i class="bi bi-award fs-4 me-2"></i> Diplomados</h5>
+                  <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diplomado en PNL (Programación Neurolingüística)</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diplomado en Inclusión Educativa</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diplomado en Gerontología</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diplomado en PNI (Psiconeuroinmunologia)</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diplomado en Sexología y Terapia Sexual</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="third-section text-white" id="third-section">
+      <div class="third-content">
+        <h2 class="third-title">¿Quiénes somos?</h2>
+        <p class="third-description text-center">
+          Somos UNIMANA de la Fundación Cristiana El Maná, afiliada a la Confesión Gobierno Eclesiástico Apostólico y Profético Universal. Regidos por la Ley Estatutaria de la República de Colombia (Ley 133 de 1994 y Ley 115 de 1994), contamos con más de 15 años formando líderes.
+        </p>
+        <div class="container text-start mt-5">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="p-4 bg-white text-dark rounded shadow h-100 border-start border-4 border-primary">
+                <h4 class="text-primary mb-3"><i class="bi bi-bullseye me-2"></i> Misión</h4>
+                <p class="fs-5">Formar lideres y profesionales con excelentes bases técnicas y científicas, generadores de procesos de cambio, con visión futurista, con valores éticos y espirituales; autónomos perseverantes, capaces de asumir defender riesgos, derechos, respetar a los demás y fomentar la conservación del medio ambiente.</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="p-4 bg-white text-dark rounded shadow h-100 border-start border-4 border-primary">
+                <h4 class="text-primary mb-3"><i class="bi bi-eye me-2"></i> Visión</h4>
+                <p class="fs-5">Formar lideres y profesionales con
+excelentes bases técnicas y
+científicas,
+generadores
+de
+procesos de cambio, con visión
+futurista, con valores éticos y
+espirituales;
+autónomos
+perseverantes, capaces de asumir
+defender
+riesgos,
+derechos,
+respetar a los demás y fomentar la
+conservación del medio ambiente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="experiencia" id="experiencia">
+      <div class="container-fluid imagenes">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10" aria-label="Slide 11"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11" aria-label="Slide 12"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12" aria-label="Slide 13"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13" aria-label="Slide 14"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="14" aria-label="Slide 15"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="15" aria-label="Slide 16"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="16" aria-label="Slide 17"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="17" aria-label="Slide 18"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="18" aria-label="Slide 19"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="19" aria-label="Slide 20"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="20" aria-label="Slide 21"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="21" aria-label="Slide 22"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="22" aria-label="Slide 23"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="imagenes/carousel/2021.jpg" class="d-block w-100" loading="lazy" alt="2021"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202201.jpg" class="d-block w-100" loading="lazy" alt="2022 01"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202202.jpg" class="d-block w-100" loading="lazy" alt="2022 02"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202301.jpg" class="d-block w-100" loading="lazy" alt="2023 01"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202302.jpg" class="d-block w-100" loading="lazy" alt="2023 02"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202303.jpg" class="d-block w-100" loading="lazy" alt="2023 03"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202304.jpg" class="d-block w-100" loading="lazy" alt="2023 04"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202305.jpg" class="d-block w-100" loading="lazy" alt="2023 05"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202401.jpg" class="d-block w-100" loading="lazy" alt="2024 01"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202402.jpg" class="d-block w-100" loading="lazy" alt="2024 02"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202403.jpg" class="d-block w-100" loading="lazy" alt="2024 03"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202501.jpg" class="d-block w-100" loading="lazy" alt="2025 01"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202502.jpg" class="d-block w-100" loading="lazy" alt="2025 02"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202503.jpg" class="d-block w-100" loading="lazy" alt="2025 03"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202504.jpg" class="d-block w-100" loading="lazy" alt="2025 04"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202505.jpg" class="d-block w-100" loading="lazy" alt="2025 05"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/graduacion.jpg" class="d-block w-100" loading="lazy" alt="Graduacion"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/graduaciondos.jpg" class="d-block w-100" loading="lazy" alt="Graduacion Dos"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/graduacionmuno.jpg" class="d-block w-100" loading="lazy" alt="Graduacion Muno"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/graduaciontres.jpg" class="d-block w-100" loading="lazy" alt="Graduacion Tres"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/graduacionuno.jpg" class="d-block w-100" loading="lazy" alt="Graduacion Uno"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202506.jpg" class="d-block w-100" loading="lazy" alt="2025 06"/></div>
+            <div class="carousel-item"><img src="imagenes/carousel/202507.jpg" class="d-block w-100" loading="lazy" alt="2025 07"/></div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="contacto" id="contacto">
+    
+        <a href="#hero-section" class="back-link"
+          ><i class="bi bi-rocket-fill"></i
+        ></a>
+        <div class="container mt-4 text-start">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h3 class="mb-3"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Presencia en Colombia</h3>
+              <p class="fs-5">Contamos con sedes administrativas y de apoyo académico en:</p>
+              <ul class="list-unstyled fs-5">
+                <li class="mb-3"><strong>La Cumbre Valle</strong> - Valle del Cauca, Colombia</li>
+                <li class="mb-3"><strong>Santander de Quilichao</strong> - Cauca, Colombia</li>
+                <li class="mb-3"><strong>Buenaventura</strong> - Valle del Cauca, Colombia</li>
+                <li class="mb-3"><strong>Barranquilla</strong> - Atlantico, Colombia</li>
+                <li class="mb-3"><strong>Bucaramanga</strong> - Santander, Colombia</li>
+                <li class="mb-3"><i class="bi bi-laptop text-primary me-2"></i><strong>Alcance Global</strong> - Modalidad Virtual</li>
+              </ul>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h3 class="mb-3"><i class="bi bi-info-circle-fill text-primary me-2"></i> Información de Contacto</h3>
+              <p class="fs-5">Inscríbete hoy y solicita tu beca de hasta el 75%.</p>
+              <ul class="list-unstyled fs-5 mt-4">
+                <li class="mb-3"><i class="bi bi-telephone-fill text-success me-3"></i> 311 6450990</li>
+                <li class="mb-3"><i class="bi bi-envelope-fill text-warning me-3"></i> fundcristianamana@hotmail.com</li>
+              </ul>
+              <div class="mt-4 fs-2">
+                <a href="https://www.facebook.com/profile.php?id=100084423895766" class="text-white me-4 hover-opacity"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.youtube.com/@Fundaci%C3%B3nUniversitariaUniman%C3%A1" class="text-white me-4 hover-opacity"><i class="bi bi-youtube"></i></a>
+                <a href="https://wa.me/573116450990" target="_blank" class="text-success hover-opacity"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://drive.google.com/file/d/1lHMjj-slKKzxPEqgLnrLJW-zeBrelyUn/view?usp=drive_link" target="_blank" class="text-success hover-opacity"><i class="bi bi-file-earmark-arrow-down-fill"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5 pt-4 border-top border-secondary">
+            <p class="mb-0 fs-6">&copy; 2024 Fundación Cristiana El Maná - UNIMANA. Todos los derechos reservados.</p>
+          </div>
+        </div>
+
+        <!-- Botón flotante WhatsApp -->
+        <a href="https://wa.me/573116450990" target="_blank" class="position-fixed bottom-0 end-0 m-4 bg-success text-white rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px; z-index: 1000; font-size: 32px; text-decoration: none;">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+
+    </section>
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
