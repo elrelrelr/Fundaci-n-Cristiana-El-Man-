@@ -207,9 +207,16 @@ body {
   color: #757575 !important;
   border-color: rgb(0, 255, 255) !important;
   border-radius: 10px !important;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  font-size: 18px;
+  transition: all 0.3s ease;
 }
 .empezar-busqueda:hover {
-  color: rgb(0, 255, 255) !important;
+  color: #ffffff !important;
+  background-color: rgb(0, 255, 255) !important;
+  box-shadow: 0 0 10px rgb(0, 255, 255);
 }
 
 /* Second Section */
@@ -336,6 +343,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .contacto h3 {
@@ -477,5 +486,31 @@ span:nth-child(4) {
   }
   100% {
     transform: rotateY(360deg);
+  }
+}
+
+/* Stars Animation */
+.star {
+  position: fixed;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  bottom: -10px; /* Start just below the screen */
+  pointer-events: none;
+  z-index: 9999; /* Cover everything */
+}
+
+.star.fly-up {
+  animation: flyUpAnimation ease-in forwards;
+}
+
+@keyframes flyUpAnimation {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120vh) scale(0.2);
   }
 }

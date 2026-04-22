@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const imagenes = document.querySelectorAll("img");
 imagenes.forEach((img) => img.setAttribute("loading", "lazy"));
 
-console.log(imagenes);
+
 
 // Efecto de linea al hacer hover en el texto del menu desplegable
 const menuItems = document.querySelectorAll(".nav-item");
@@ -144,3 +144,37 @@ if (searchForm && searchInput) {
     }
   });
 }
+
+// Animación de estrellitas al presionar el botón de "subir"
+document.addEventListener('DOMContentLoaded', () => {
+  const rocketBtn = document.getElementById('rocket-btn');
+
+  if (rocketBtn) {
+    rocketBtn.addEventListener('click', () => {
+      // Crear 50 pequeñas estrellas
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star fly-up';
+        
+        // Tamaño aleatorio entre 2px y 5px
+        const size = Math.random() * 3 + 2;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Posición horizontal aleatoria en toda la pantalla
+        star.style.left = `${Math.random() * 100}vw`;
+        
+        // Retraso y duración aleatoria de la animación
+        star.style.animationDelay = `${Math.random() * 0.5}s`;
+        star.style.animationDuration = `${Math.random() * 1.5 + 1.5}s`; // de 1.5s a 3s
+        
+        document.body.appendChild(star);
+        
+        // Eliminar del DOM después de que termine la animación
+        setTimeout(() => {
+          star.remove();
+        }, 4000);
+      }
+    });
+  }
+});
