@@ -304,6 +304,10 @@ body {
   .subtitle {
     font-size: 16px;
   }
+  
+  #unimana {
+    font-size: 24px !important;
+  }
 
   .futuristic-button {
     width: 250px;
