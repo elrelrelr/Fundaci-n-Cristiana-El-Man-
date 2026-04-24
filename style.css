@@ -428,6 +428,12 @@ body {
     padding: 12px 25px;
   }
 }
+/*bajar el tamaño de unimana-title en pantallas muy pequeñas*/
+@media screen and (min-width: 350px) {
+  .unimana-title {
+    font-size: 30px !important;
+  }
+}
 
 /* Historia Section */
 .historia {
