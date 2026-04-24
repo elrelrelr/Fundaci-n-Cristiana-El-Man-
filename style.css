@@ -39,7 +39,8 @@ body {
 }
 
 .subtitle {
-  font-family: "Bitter", serif;
+  
+  font-family: "Google Sans", sans-serif;
   font-size: 18px;
   color: white;
   margin-bottom: 30px;
@@ -428,10 +429,16 @@ body {
     padding: 12px 25px;
   }
 }
-/*bajar el tamaño de unimana-title en pantallas muy pequeñas*/
+/*subir el tamaño de unimana-title en tablets y telefonos*/
 @media screen and (min-width: 350px) {
   .unimana-title {
     font-size: 30px !important;
+  }
+}
+/*bajar el tamaño de unimana-title en pantallas muy pequeñas*/
+@media screen and (max-width: 290px) {
+  .unimana-title {
+    display: none !important;
   }
 }
 
