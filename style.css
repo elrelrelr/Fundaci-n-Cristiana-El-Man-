@@ -156,6 +156,93 @@ body {
   width: 100%;
 }
 
+/* Offcanvas dark theme */
+#menuLateral {
+  background: linear-gradient(180deg, #07072e 0%, #0a192f 100%);
+  color: white;
+  border-right: 1px solid rgba(115, 226, 254, 0.15);
+}
+
+#menuLateral .nav-link {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(115, 226, 254, 0.08);
+  transition: color 0.2s ease, padding-left 0.25s ease;
+}
+
+#menuLateral .nav-link:hover {
+  color: rgb(115, 226, 254) !important;
+  padding-left: 10px;
+}
+
+#menuLateral .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(115, 226, 254, 0.35);
+  color: white;
+  border-radius: 8px;
+}
+
+#menuLateral .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#menuLateral .form-control:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgb(115, 226, 254);
+  box-shadow: 0 0 8px rgba(115, 226, 254, 0.35);
+  color: white;
+}
+
+#menuLateral .btn-outline-light {
+  border-color: rgba(115, 226, 254, 0.5);
+  color: rgb(115, 226, 254);
+}
+
+#menuLateral .btn-outline-light:hover {
+  background: rgba(115, 226, 254, 0.15);
+  color: white;
+}
+
+/* Mobile search bar expandible */
+.mobile-search-wrapper {
+  gap: 6px;
+}
+
+.mobile-search-bar {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.35s ease, opacity 0.3s ease;
+}
+
+.mobile-search-bar.open {
+  max-width: 200px;
+  opacity: 1;
+}
+
+.mobile-search-input {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(115, 226, 254, 0.5);
+  border-radius: 20px;
+  color: white;
+  padding: 6px 14px;
+  font-size: 14px;
+  width: 170px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mobile-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.mobile-search-input:focus {
+  border-color: rgb(115, 226, 254);
+  box-shadow: 0 0 10px rgba(115, 226, 254, 0.4);
+}
+
 /* barra de busqueda  */
 .search-bar {
   position: sticky;
@@ -316,6 +403,65 @@ body {
   }
 }
 
+/* Historia Section */
+.historia {
+  min-height: 70vh;
+  background: linear-gradient(135deg, rgba(7, 7, 46, 0.97) 0%, rgba(16, 16, 48, 0.98) 50%, rgba(0, 25, 60, 0.97) 100%), url('imagenes/fondo.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.historia-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 700;
+  color: rgb(115, 226, 254);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+.historia-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 143, 245, 0.3);
+  border-left: 4px solid #008ff5;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 143, 245, 0.1);
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.3s ease;
+}
+
+.historia-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 153, 255, 0.2);
+}
+
+.historia-icon {
+  color: rgb(115, 226, 254);
+}
+
+.historia-icon-success {
+  color: #00ffa9;
+}
+
+.historia-divider {
+  border-color: rgba(0, 143, 245, 0.3);
+  margin: 1.5rem 0;
+}
+
+.historia-strong {
+  color: rgb(115, 226, 254);
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
 .experiencia {
   min-height: 100vh;
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(10, 25, 47, 0.95) 100%), url('imagenes/fondo.png');
@@ -331,6 +477,96 @@ body {
 .experiencia-header {
   z-index: 2;
 }
+
+/* Año del carrusel */
+.carousel-year-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.year-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 12px 0;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.year-line-top,
+.year-line-bottom {
+  width: 2px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(115, 226, 254, 0.6));
+  border-radius: 2px;
+}
+
+.year-line-bottom {
+  background: linear-gradient(to top, transparent, rgba(115, 226, 254, 0.6));
+}
+
+.year-number {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 52px);
+  color: rgb(115, 226, 254);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 6px;
+  text-shadow: 0 0 18px rgba(115, 226, 254, 0.7), 0 0 40px rgba(0, 153, 255, 0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  padding: 16px 0;
+}
+
+.year-number.fading {
+  opacity: 0;
+  transform: rotate(180deg) translateY(12px);
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-year-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .year-panel {
+    flex-direction: row;
+    min-width: unset;
+    width: 100%;
+    justify-content: center;
+    padding: 12px 0 0 0;
+    gap: 12px;
+  }
+  .year-line-top,
+  .year-line-bottom {
+    width: 40px;
+    min-height: 2px;
+    height: 2px;
+    flex: 1;
+    background: linear-gradient(to right, transparent, rgba(115, 226, 254, 0.6));
+  }
+  .year-line-bottom {
+    background: linear-gradient(to left, transparent, rgba(115, 226, 254, 0.6));
+  }
+  .year-number {
+    writing-mode: horizontal-tb;
+    transform: none;
+    letter-spacing: 4px;
+    font-size: clamp(22px, 6vw, 36px);
+    padding: 0 12px;
+  }
+  .year-number.fading {
+    transform: translateY(-8px);
+  }
+}
+
 .imagenes {
   position: relative;
   width: 100%;

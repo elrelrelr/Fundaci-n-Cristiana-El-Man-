@@ -178,3 +178,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ── Año del carrusel ──────────────────────────────────────────
+(function () {
+  const carouselEl = document.getElementById('carouselExampleIndicators');
+  const yearEl     = document.getElementById('carouselYear');
+  if (!carouselEl || !yearEl) return;
+
+  function extractYear(slideEl) {
+    const img = slideEl && slideEl.querySelector('img');
+    if (!img) return '';
+    const filename = img.getAttribute('src').split('/').pop(); // e.g. "202301.jpg"
+    const first4   = filename.substring(0, 4);
+    return /^\d{4}$/.test(first4) ? first4 : 'Grad.';
+  }
+
+  // Valor inicial
+  const firstSlide = carouselEl.querySelector('.carousel-item.active');
+  if (firstSlide) yearEl.textContent = extractYear(firstSlide);
+
+  // Actualizar con fade en cada transición
+  carouselEl.addEventListener('slide.bs.carousel', function (e) {
+    const slides   = carouselEl.querySelectorAll('.carousel-item');
+    const nextSlide = slides[e.to];
+    const newYear   = extractYear(nextSlide);
+
+    // Fade out
+    yearEl.classList.add('fading');
+
+    setTimeout(function () {
+      yearEl.textContent = newYear;
+      yearEl.classList.remove('fading');
+    }, 300);
+  });
+})();
+
+// ── Búsqueda móvil (lupa navbar) ─────────────────────────────
+(function () {
+  const toggle = document.getElementById('mobileSearchToggle');
+  const bar    = document.getElementById('mobileSearchBar');
+  const input  = document.getElementById('mobileSearchInput');
+  if (!toggle || !bar || !input) return;
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    bar.classList.toggle('open');
+    if (bar.classList.contains('open')) {
+      input.focus();
+    } else {
+      input.value = '';
+    }
+  });
+
+  // Buscar al presionar Enter
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const term = input.value.trim().toLowerCase();
+      if (term) {
+        highlightAndScroll(term);
+        bar.classList.remove('open');
+        input.value = '';
+      }
+    }
+    if (e.key === 'Escape') {
+      bar.classList.remove('open');
+      input.value = '';
+    }
+  });
+
+  // Cerrar al hacer clic fuera
+  document.addEventListener('click', function (e) {
+    if (!toggle.contains(e.target) && !bar.contains(e.target)) {
+      bar.classList.remove('open');
+      input.value = '';
+    }
+  });
+})();
