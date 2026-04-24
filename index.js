@@ -255,3 +255,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 })();
+
+// ── Búsqueda del menú lateral (offcanvas) ────────────────────
+(function () {
+  const input  = document.getElementById('offcanvasSearchInput');
+  const btn    = document.getElementById('offcanvasSearchBtn');
+  const offcanvasEl = document.getElementById('menuLateral');
+  if (!input || !btn) return;
+
+  function doSearch() {
+    const term = input.value.trim().toLowerCase();
+    if (!term) return;
+
+    // Cerrar el offcanvas antes de buscar
+    if (offcanvasEl) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+      if (bsOffcanvas) bsOffcanvas.hide();
+    }
+
+    // Pequeño delay para que el offcanvas cierre antes de hacer scroll
+    setTimeout(function () {
+      highlightAndScroll(term);
+    }, 350);
+
+    input.value = '';
+  }
+
+  btn.addEventListener('click', doSearch);
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      doSearch();
+    }
+    if (e.key === 'Escape') {
+      input.value = '';
+    }
+  });
+
+  // Limpiar al cerrar el offcanvas
+  if (offcanvasEl) {
+    offcanvasEl.addEventListener('hidden.bs.offcanvas', function () {
+      input.value = '';
+      removeHighlights();
+    });
+  }
+})();
