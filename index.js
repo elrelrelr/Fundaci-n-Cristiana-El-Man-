@@ -213,22 +213,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// ── Búsqueda móvil (lupa navbar) ─────────────────────────────
+// ── Búsqueda del navbar de teléfonos (overlay lupa) ──────────
 (function () {
-  const toggle = document.getElementById('mobileSearchToggle');
-  const bar    = document.getElementById('mobileSearchBar');
-  const input  = document.getElementById('mobileSearchInput');
-  if (!toggle || !bar || !input) return;
+  const toggle  = document.getElementById('phoneSearchToggle');
+  const overlay = document.getElementById('phoneSearchOverlay');
+  const input   = document.getElementById('phoneSearchInput');
+  const closeBtn = document.getElementById('phoneSearchClose');
+  if (!toggle || !overlay || !input) return;
 
-  toggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    bar.classList.toggle('open');
-    if (bar.classList.contains('open')) {
-      input.focus();
-    } else {
-      input.value = '';
-    }
-  });
+  function openSearch() {
+    overlay.classList.add('open');
+    setTimeout(() => input.focus(), 50);
+  }
+  function closeSearch() {
+    overlay.classList.remove('open');
+    input.value = '';
+    removeHighlights();
+  }
+
+  toggle.addEventListener('click', openSearch);
+  closeBtn && closeBtn.addEventListener('click', closeSearch);
 
   // Buscar al presionar Enter
   input.addEventListener('keydown', function (e) {
@@ -237,22 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const term = input.value.trim().toLowerCase();
       if (term) {
         highlightAndScroll(term);
-        bar.classList.remove('open');
+        overlay.classList.remove('open');
         input.value = '';
       }
     }
-    if (e.key === 'Escape') {
-      bar.classList.remove('open');
-      input.value = '';
-    }
+    if (e.key === 'Escape') closeSearch();
   });
 
-  // Cerrar al hacer clic fuera
-  document.addEventListener('click', function (e) {
-    if (!toggle.contains(e.target) && !bar.contains(e.target)) {
-      bar.classList.remove('open');
-      input.value = '';
-    }
+  // Limpiar resaltados en tiempo real mientras escribe
+  input.addEventListener('input', function () {
+    if (this.value.trim() === '') removeHighlights();
   });
 })();
 

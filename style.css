@@ -205,43 +205,69 @@ body {
   color: white;
 }
 
-/* Mobile search bar expandible */
-.mobile-search-wrapper {
-  gap: 6px;
+/* ── Navbar teléfonos/tablets ───────────────────────────────── */
+#phoneNavbar {
+  background: linear-gradient(90deg, #008ff5 0%, #005fcc 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  position: relative;          /* para el overlay absoluto */
+  overflow: hidden;            /* evita que el overlay desborde */
 }
 
-.mobile-search-bar {
-  max-width: 0;
-  overflow: hidden;
+
+/* ── Overlay de búsqueda (lupa) ─────────────────────────────── */
+.phone-search-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, #005fcc 0%, #0074d9 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+  z-index: 10;
+  /* Oculto por defecto */
   opacity: 0;
-  transition: max-width 0.35s ease, opacity 0.3s ease;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.mobile-search-bar.open {
-  max-width: 200px;
+.phone-search-overlay.open {
   opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
 }
 
-.mobile-search-input {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(115, 226, 254, 0.5);
-  border-radius: 20px;
+.phone-search-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(115, 226, 254, 0.6);
+  border-radius: 24px;
   color: white;
-  padding: 6px 14px;
-  font-size: 14px;
-  width: 170px;
+  padding: 7px 18px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-
-.mobile-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+.phone-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
-
-.mobile-search-input:focus {
+.phone-search-input:focus {
   border-color: rgb(115, 226, 254);
-  box-shadow: 0 0 10px rgba(115, 226, 254, 0.4);
+  box-shadow: 0 0 14px rgba(115, 226, 254, 0.45);
 }
+
+.phone-search-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.phone-search-close:hover { opacity: 1; }
 
 /* barra de busqueda  */
 .search-bar {

@@ -19,25 +19,38 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-unimana sticky-top d-lg-none">
-        <div class="container-fluid">
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+    <!-- Navbar para teléfonos y tablets (oculto en lg+) -->
+    <nav class="navbar navbar-dark sticky-top d-lg-none" id="phoneNavbar">
+        <!-- Overlay de búsqueda -->
+        <div class="phone-search-overlay" id="phoneSearchOverlay">
+            <input
+                class="phone-search-input"
+                type="search"
+                placeholder="Buscar en la página..."
+                id="phoneSearchInput"
+                autocomplete="off"
+            />
+            <button class="phone-search-close" id="phoneSearchClose" aria-label="Cerrar búsqueda">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <!-- Contenido normal del navbar -->
+        <div class="container-fluid px-2 py-0 d-flex align-items-center" style="min-height:56px;">
+            <!-- Botón hamburguesa -->
+            <button class="navbar-toggler border-0 flex-shrink-0 me-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+                    aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <a class="navbar-brand d-flex align-items-center ms-2" href="#">
-                <img src="imagenes/logo.png" alt="Logo" class="me-2 d-none d-md-inline" width="80" height="60">
-                <span class="fw-bold h3 mb-0">UNIMANÁ</span>
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center flex-shrink-0 me-auto" href="#" style="padding:4px 0;">
+                <img src="imagenes/logo.png" alt="Logo" width="60" height="40" class="me-1">
+                <span class="fw-bold" style="font-size:1.5rem;letter-spacing:.5px;">UNIMANÁ</span>
             </a>
-
-            <div class="mobile-search-wrapper ms-auto me-2 d-none d-md-flex align-items-center">
-                <div class="mobile-search-bar" id="mobileSearchBar">
-                    <input class="mobile-search-input" type="search" placeholder="Buscar..." id="mobileSearchInput" autocomplete="off">
-                </div>
-                <button class="btn p-0 border-0 text-white" id="mobileSearchToggle" aria-label="Buscar">
-                    <i class="bi bi-search fs-4"></i>
-                </button>
-            </div>
+            <!-- Botón lupa -->
+            <button class="btn p-1 border-0 text-white flex-shrink-0 ms-2" id="phoneSearchToggle" aria-label="Buscar">
+                <i class="bi bi-search fs-5"></i>
+            </button>
         </div>
     </nav>
 
