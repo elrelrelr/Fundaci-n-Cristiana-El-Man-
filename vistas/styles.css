@@ -1,0 +1,143 @@
+/* Estilos generales de todos los cursos */
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #3498db;
+  --bg-color: #f4f7f6;
+  --text-color: #333;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 280px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 20px 0;
+}
+
+.details {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.btn-pay {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-pay:hover {
+  background-color: var(--accent-color);
+}
+/* Video intro */
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+/* Módulos */
+.module-card {
+  border: 1px solid #e0e7ff; /* lavender lighter */
+  border-radius: 16px;
+  padding: 1.8rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: white;
+}
+
+.module-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.module-card ul {
+  font-size: 0.9rem;
+  color: #64748b; /* slate-500 */
+  line-height: 1.7;
+}
+
+/* Contacts */
+.contactos {
+  margin-top: 2.5rem;
+}
+
+.contactos__titulo {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactos__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contactos__lista__item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: #475569; /* slate-600 */
+}
+
+.contactos__lista__item i {
+  font-size: 1.1rem;
+  color: #4f46e5; /*indigo-600*/
+}
