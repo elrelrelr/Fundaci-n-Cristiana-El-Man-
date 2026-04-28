@@ -51,10 +51,10 @@ imagenes.forEach((img) => img.setAttribute("loading", "lazy"));
 const menuItems = document.querySelectorAll(".nav-item");
 menuItems.forEach((item) => {
   item.addEventListener("mouseover", () => {
-    item.style.textDecoration = "line-through";
+    item.classList.add('link-tachado')
   });
   item.addEventListener("mouseout", () => {
-    item.style.textDecoration = "none";
+    item.classList.remove('link-tachado')
   });
 });
 
@@ -310,3 +310,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 })();
+// Reemplaza el bloque final de tu index.js con esto:
+document.addEventListener('DOMContentLoaded', function() {
+  const menuLateral = document.getElementById('menuLateral');
+  if (!menuLateral) return;
+
+  const links = menuLateral.querySelectorAll('a[href^="#"]'); 
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // IMPORTANTE: Detiene el salto automático del HTML
+      
+      const targetId = this.getAttribute('href');
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(menuLateral);
+      
+      // Guardamos el destino para usarlo cuando el menú termine de cerrar
+      menuLateral.setAttribute('data-pending-scroll', targetId);
+      
+      if (bsOffcanvas) {
+        bsOffcanvas.hide();
+      }
+    });
+  });
+
+  // Esperamos a que el menú se oculte del todo para mover la pantalla
+  menuLateral.addEventListener('hidden.bs.offcanvas', function () {
+    const targetId = this.getAttribute('data-pending-scroll');
+    if (targetId) {
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+      this.removeAttribute('data-pending-scroll');
+    }
+  });
+});

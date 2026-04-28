@@ -77,7 +77,6 @@ body {
   display: block;
   /* Titulo adaptable: Mínimo 28px, preferido 6vw, máximo 60px */
   font-size: clamp(28px, 6vw, 60px);
-  overflow-wrap: normal;
   hyphens: none;
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -302,7 +301,7 @@ body {
   background-color: #009688;
   border: none;
   cursor: pointer;
-  font-size: -webkit-xxx-large;
+  font-size: 3rem;
 }
 
 .menu-list {
@@ -813,3 +812,4 @@ span:nth-child(4) {
     transform: translateY(-120vh) scale(0.2);
   }
 }
+.link-tachado { text-decoration: line-through; }
