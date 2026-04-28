@@ -10,6 +10,7 @@ body {
 
 /* Hero Section */
 .hero-section {
+  background-color: #0a192f;
   background-image: url("imagenes/fondo.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -19,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 0px 0px;
+  padding: 80px 0px 150px;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -154,6 +155,16 @@ body {
 }
 
 .content-two {
+  width: 100%;
+  line-height: 0;
+  margin-top: auto;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+.wave {
+  display: block;
   width: 100%;
 }
 
@@ -415,6 +426,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll;
+  }
+  
   .subtitle {
     font-size: 16px;
   }
