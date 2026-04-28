@@ -653,11 +653,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(24px, 4vw, 32px);
 }
-.contacto i:not(.back-link i) {
-  color: white;
-  font-size: 50px;
-  margin: 10px;
-}
+
 .back-link i {
   margin: 0;
   font-size: inherit;

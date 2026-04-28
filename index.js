@@ -1,21 +1,32 @@
-// Separar cada letra en un span para efectos individuales
+// Separar cada palabra en un contenedor y cada letra en un span para efectos individuales
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.querySelector(".animated-text");
-  const textContent = text.textContent;
+  if (!text) return;
+  
+  const textContent = text.textContent.trim();
+  const words = textContent.split(/\s+/);
   let newHtml = "";
 
-  for (let i = 0; i < textContent.length; i++) {
-    if (textContent[i] === " ") {
-      newHtml += " ";
-    } else {
-      newHtml += `<span>${textContent[i]}</span>`;
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    // Contenedor inline-block para evitar que la palabra se corte
+    newHtml += `<div style="display: inline-block; white-space: nowrap;">`;
+    for (let j = 0; j < word.length; j++) {
+      newHtml += `<span>${word[j]}</span>`;
+    }
+    newHtml += `</div>`;
+    
+    if (i < words.length - 1) {
+      newHtml += " "; // Espacio entre palabras
     }
   }
 
   text.innerHTML = newHtml;
 
-  // Efecto de ola automático
+  // Efecto de ola automático letra por letra
   const spans = text.querySelectorAll("span");
+  if (spans.length === 0) return;
+  
   let currentIndex = 0;
 
   setInterval(() => {
@@ -28,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     spans[currentIndex].classList.add("wave-animation");
 
     currentIndex = (currentIndex + 1) % spans.length;
-  }, 100);
+  }, 100); // Volvemos a 100ms porque ahora rebota letra por letra
 });
 // Seleccionar todas las imagenes y bajarles el peso
 const imagenes = document.querySelectorAll("img");
