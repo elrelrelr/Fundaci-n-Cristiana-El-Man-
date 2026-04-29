@@ -84,29 +84,17 @@ body {
 
 .animated-text span {
   display: inline-block;
-
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .animated-text span:hover {
-  transform: scale(1.3);
+  transform: scale(1.3) translateY(-4px);
   color: #0099ff;
 }
 
-@keyframes waveAnimation {
-  0% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .wave-animation {
-  animation: waveAnimation 0.1s ease;
+  transform: scale(1.3) translateY(-4px);
+  color: #0099ff;
 }
 
 .futuristic-button:before {
