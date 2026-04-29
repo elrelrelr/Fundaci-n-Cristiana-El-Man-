@@ -28,18 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
   if (spans.length === 0) return;
   
   let currentIndex = 0;
+  let lastTime = 0;
+  const interval = 100;
 
-  setInterval(() => {
-    if (currentIndex > 0) {
-      spans[currentIndex - 1].classList.remove("wave-animation");
-    } else {
-      spans[spans.length - 1].classList.remove("wave-animation");
+  function animateWave(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+
+    if (timestamp - lastTime >= interval) {
+      if (currentIndex > 0) {
+        spans[currentIndex - 1].classList.remove("wave-animation");
+      } else {
+        spans[spans.length - 1].classList.remove("wave-animation");
+      }
+
+      spans[currentIndex].classList.add("wave-animation");
+
+      currentIndex = (currentIndex + 1) % spans.length;
+      lastTime = timestamp;
     }
 
-    spans[currentIndex].classList.add("wave-animation");
+    requestAnimationFrame(animateWave);
+  }
 
-    currentIndex = (currentIndex + 1) % spans.length;
-  }, 100); // Volvemos a 100ms porque ahora rebota letra por letra
+  requestAnimationFrame(animateWave);
 });
 // Seleccionar todas las imagenes y bajarles el peso
 const imagenes = document.querySelectorAll("img");
@@ -141,11 +152,32 @@ function highlightAndScroll(searchTerm) {
   }
 }
 
+function iniciarBusqueda(idInput) {
+  const input = document.getElementById(idInput) || document.querySelector(idInput);
+  if (!input) return;
+  const term = input.value.trim().toLowerCase();
+  if (!term) return;
+
+  const offcanvasEl = document.getElementById('menuLateral');
+  const overlay = document.getElementById('phoneSearchOverlay');
+
+  if (offcanvasEl && offcanvasEl.contains(input)) {
+    const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (bsOffcanvas) bsOffcanvas.hide();
+    setTimeout(() => highlightAndScroll(term), 350);
+  } else {
+    if (overlay && overlay.contains(input)) {
+      overlay.classList.remove('open');
+    }
+    highlightAndScroll(term);
+  }
+  input.value = '';
+}
+
 if (searchForm && searchInput) {
   searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    highlightAndScroll(searchTerm);
+    iniciarBusqueda('.busqueda');
   });
 
   // Limpiar resaltados al vaciar el campo de búsqueda
@@ -249,12 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      const term = input.value.trim().toLowerCase();
-      if (term) {
-        highlightAndScroll(term);
-        overlay.classList.remove('open');
-        input.value = '';
-      }
+      iniciarBusqueda('phoneSearchInput');
     }
     if (e.key === 'Escape') closeSearch();
   });
@@ -272,30 +299,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const offcanvasEl = document.getElementById('menuLateral');
   if (!input || !btn) return;
 
-  function doSearch() {
-    const term = input.value.trim().toLowerCase();
-    if (!term) return;
-
-    // Cerrar el offcanvas antes de buscar
-    if (offcanvasEl) {
-      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
-      if (bsOffcanvas) bsOffcanvas.hide();
-    }
-
-    // Pequeño delay para que el offcanvas cierre antes de hacer scroll
-    setTimeout(function () {
-      highlightAndScroll(term);
-    }, 350);
-
-    input.value = '';
-  }
-
-  btn.addEventListener('click', doSearch);
+  btn.addEventListener('click', () => iniciarBusqueda('offcanvasSearchInput'));
 
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      doSearch();
+      iniciarBusqueda('offcanvasSearchInput');
     }
     if (e.key === 'Escape') {
       input.value = '';
