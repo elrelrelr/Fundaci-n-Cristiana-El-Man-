@@ -83,6 +83,14 @@ header .btn-link:hover {
   border: 1px solid var(--card-border);
   backdrop-filter: blur(10px);
 }
+.video-container:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.video-container:hover .ratio-16x9 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .video-container h2 {
   color: var(--accent-color);
