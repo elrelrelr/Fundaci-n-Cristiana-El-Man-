@@ -75,18 +75,29 @@ header p {
   color: rgba(255, 255, 255, 0.8);
 }
 
-header .btn-link {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: var(--accent-color);
+.volver-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
 }
 
-header .btn-link:hover {
-  transform: scale(1.1);
-  color: #fff;
+.volver-link i {
+  font-size: 1.8rem;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.volver-link:hover {
+  color: var(--accent-color);
+}
+
+.volver-link:hover i {
+  transform: translateX(-5px);
 }
 
 /* Video intro */
@@ -154,6 +165,10 @@ header .btn-link:hover {
 
 .card-body .text-muted {
   color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.card-footer .text-muted {
+  color: rgb(127 136 145 / 75%) !important;
 }
 
 .list-unstyled li {

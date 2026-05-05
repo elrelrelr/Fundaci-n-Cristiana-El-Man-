@@ -24,11 +24,17 @@
     <!-- Contenedor principal de la página -->
     <div class="container">
 
-        <!-- Encabezado con enlace a la página principal y título del curso -->
+        <!-- Botón para volver -->
+        <div class="mt-3 mb-4">
+            <a href="../index.html" class="volver-link">
+                <i class="bi bi-arrow-left-short"></i> Volver a Programas
+            </a>
+        </div>
+
+        <!-- Encabezado con título del curso -->
         <header>
-            <a href="../index.html" class="btn btn-link"><i class="bi bi-arrow-left-circle-fill fs-3"></i></a>
             <h1 class="titulo-curso">Curso Especializado en Psicología Cognitiva</h1>
-            <p>Invierte en tu futuro profesional con nuestros planes de formación flexible.</p>
+            <p class="fw-bold">Invierte en tu futuro profesional con nuestros planes de formación flexible.</p>
         </header>
 
         <!-- Descripción del programa -->
@@ -245,7 +251,7 @@
             </div>
         </section>
 
-        <footer class="contactos" id="contactos">
+        <footer class="contactos" style="margin-bottom: 100px;">
             <div class="contactos__titulo">
                 <h2>Contactos</h2>
                 <p style="color: rgba(255,255,255,0.8);">Si tienes alguna pregunta o necesitas ayuda, no dudes en
@@ -259,13 +265,16 @@
                         <p>+57 311 645 0990</p>
                     </div>
                 </div>
-                <div class="contactos__lista__item">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@fundacionunimana.com" target="_blank" class="contactos__lista__item text-decoration-none">
                     <i class="bi bi-envelope-fill fs-2 text-warning"></i>
-                    <div class="contactos__lista__item__info">
+                    <div class="contactos__lista__item__info d-none d-sm-block">
                         <h3>Correo</h3>
                         <p>contacto@fundacionunimana.com</p>
                     </div>
-                </div>
+                    <div class="contactos__lista__item__info d-block d-sm-none">
+                        <h3 class="mb-0">Escribir un correo</h3>
+                    </div>
+                </a>
                 <div class="contactos__lista__item">
                     <i class="bi bi-geo-alt-fill fs-2 text-info"></i>
                     <div class="contactos__lista__item__info">

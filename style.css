@@ -445,6 +445,15 @@ body {
     background-attachment: scroll !important;
   }
   
+  .hero-section {
+    padding: 60px 0px 100px;
+    min-height: 60vh;
+  }
+  
+  .wave {
+    height: 100px !important;
+  }
+  
   .subtitle {
     font-size: 16px;
   }
@@ -829,3 +838,4 @@ span:nth-child(4) {
   }
 }
 .link-tachado { text-decoration: line-through; }
+
