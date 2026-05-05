@@ -441,8 +441,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .hero-section {
-    background-attachment: scroll;
+  .hero-section, .third-section, .historia, .experiencia {
+    background-attachment: scroll !important;
   }
   
   .subtitle {

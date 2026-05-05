@@ -15,6 +15,8 @@
 
     <!-- Enlace a Bootstrap CSS desde un CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icono de la pagina -->
+    <link rel="icon" href="../imagenes/logo.png">
 </head>
 
 <body>
@@ -32,7 +34,7 @@
         <!-- Descripción del programa -->
         <div class="module-card">
             <div class="card-body">
-                <h2 class="text-center mb-4 text-white">Descripción del Programa</h2>
+                <h2 class="text-center mb-4 text-white fw-bolder">Descripción del Programa</h2>
 
                 <!-- Parágrafos sobre el curso -->
                 <p>El Curso de Psicología Cognitiva es un programa de formación especializada diseñado para dotar a los
@@ -45,7 +47,7 @@
 
         <!-- Video introductorio -->
         <div class="mb-5 pb-3 video-container">
-            <h2 class="text-center mb-3">Introducción al Curso</h2>
+            <h2 class="text-center mb-3 fw-bolder">Introducción al Curso</h2>
 
             <!-- Contenedor de ratio 16x9 para el video -->
             <div class="ratio ratio-16x9 rounded-3 shadow-lg">
@@ -198,7 +200,7 @@
 
         <!-- Métodos de pago -->
         <section class="sec5 planes-container mb-5 mt-5">
-            <h2 class="text-center mb-5 w-100 text-white">Planes de Inversión</h2>
+            <h2 class="text-center mb-5 w-100 text-white fw-bolder">Planes de Inversión</h2>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
@@ -276,6 +278,23 @@
 
     </div>
 
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/573116450990" target="_blank"
+        class="whatsapp-coin-container position-fixed bottom-0 end-0 m-4 shadow"
+        style="width: 60px; height: 60px; z-index: 1000; text-decoration: none;">
+        <div class="whatsapp-coin">
+            <div class="coin-front text-white rounded-circle d-flex align-items-center justify-content-center">
+                <i class="bi bi-whatsapp" style="font-size: 32px; margin: 0;"></i>
+            </div>
+            <div
+                class="coin-back rounded-circle d-flex align-items-center justify-content-center border border-2 border-white">
+                <img src="../imagenes/logovacacional.jpg" alt="Logo Vacacional"
+                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </div>
+        </div>
+    </a>
+
+    <script src="funciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

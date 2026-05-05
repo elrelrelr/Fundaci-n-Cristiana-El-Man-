@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   let currentIndex = 0;
   let lastTime = 0;
-  const interval = 100;
+  const interval = 150;
 
   function animateWave(timestamp) {
     if (!lastTime) lastTime = timestamp;
