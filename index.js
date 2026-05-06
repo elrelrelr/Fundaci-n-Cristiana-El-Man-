@@ -354,3 +354,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Scroll reveal animation for contact section
+(function() {
+  const contactSection = document.getElementById('contacto');
+  if (!contactSection) return;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(contactSection);
+})();
