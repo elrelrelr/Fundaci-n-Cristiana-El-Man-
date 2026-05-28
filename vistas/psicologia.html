@@ -49,7 +49,7 @@
       </button>
     </div>
   </nav>
-
+  <!-- Menú lateral (offcanvas) -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" data-bs-scroll="true" data-bs-backdrop="true"
     data-bs-restore-focus="false">
     <div class="offcanvas-header">
@@ -128,17 +128,16 @@
   </section>
 
     <!-- Contenedor principal de la página -->
-    <div class="container">
-
+    <div class="container-fluid p-0">
         <!-- Encabezado con título del curso -->
-        <header>
+        <header class="header container-fluid">
             <h1 class="titulo-curso">Curso Especializado en Psicología Cognitiva</h1>
             <p>Invierte en tu futuro profesional con nuestros planes de formación flexible.</p>
         </header>
 
         <!-- Descripción del programa -->
-        <div id="descripcion" class="module-card">
-            <div class="card-body">
+        <div id="descripcion" class="descripcion container-fluid px-5">
+            <div class="module-card">
                 <h2 class="text-center mb-4 fw-bolder">Descripción del Programa</h2>
 
                 <!-- Parágrafos sobre el curso -->
@@ -151,7 +150,8 @@
         </div>
 
         <!-- Video introductorio -->
-        <div class="mb-5 pb-3 video-container">
+         <div class="container-fluid px-5">
+        <div class="video-container p-3 ">
             <h2 class="text-center mb-3 fw-bolder">Introducción al Curso</h2>
 
             <!-- Contenedor de ratio 16x9 para el video -->
@@ -166,9 +166,10 @@
                 Video explicativo del programa de Psicología Cognitiva.
             </p>
         </div>
+        </div>
 
         <!-- Módulos del curso (text-wrap) -->
-        <section id="modulos" class="modulos mb-5">
+        <section id="modulos" class="modulos mb-5  container">
             <h2 class="text-center mb-4">Módulos del Curso</h2>
 
             <!-- Contenedor de las tarjetas de módulos -->
@@ -303,6 +304,7 @@
 
 
         <!-- Métodos de pago -->
+         <div class="container-fluid px-5">
         <section id="planes" class="sec5 planes-container mb-5 mt-5">
             <h2 class="text-center mb-5 w-100 fw-bolder">Planes de Inversión</h2>
 
@@ -348,8 +350,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
-        <footer id="contactos" class="contactos" style="margin-bottom: 100px;">
+        <!-- Contactos -->
+         <div class="container-fluid px-5 py-0">
+        <footer id="contactos" class="contactos">
             <div class="contactos__titulo">
                 <h2>Contactos</h2>
                 <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en
@@ -382,6 +387,7 @@
                 </div>
             </div>
         </footer>
+        </div>
 
     </div>
 
