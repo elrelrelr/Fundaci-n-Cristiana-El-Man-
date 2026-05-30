@@ -71,7 +71,6 @@
       <!-- Botón Tema (Móvil - dentro del menú) -->
       <button class="nav-theme-toggle mt-3" aria-label="Cambiar tema">
         <i class="bi bi-moon-stars-fill"></i>
-        <span>Cambiar Modo</span>
       </button>
 
       <div class="mt-4 d-flex">
@@ -128,12 +127,99 @@
   </section>
 
     <!-- Contenedor principal de la página -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" style="overflow-x: hidden;">
         <!-- Encabezado con título del curso -->
-        <header class="header container-fluid">
-            <h1 class="titulo-curso">Curso Especializado en Psicología Cognitiva</h1>
-            <p>Invierte en tu futuro profesional con nuestros planes de formación flexible.</p>
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="header-content">
+                    <h1 class="titulo-curso">Curso Especializado en Psicología Cognitiva</h1>
+                    <p>Invierte en tu futuro profesional con nuestros planes de formación flexible.</p>
+                </div>
+                <!-- olas modernas fluidas como fondo -->
+                <div class="waves-container">
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                        <defs>
+                            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                        </defs>
+                        <g class="parallax">
+                            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(115, 226, 254, 0.7)" />
+                            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(115, 226, 254, 0.5)" />
+                            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(115, 226, 254, 0.3)" />
+                            <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--bg-color)" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
         </header>
+
+<style>
+  .header {
+    position: relative;
+    width: 100%;
+    min-height: 70vh; /* Altura controlada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(0, 153, 255, 0.1) 0%, transparent 80%);
+    margin: 0 !important;
+  }
+
+  .header-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 20; /* Texto siempre al frente */
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 80px; /* Reducido para subir el texto */
+  }
+
+  .waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura fija para la ola */
+    line-height: 0;
+    z-index: 10; /* Detrás del texto pero delante del fondo base */
+    pointer-events: none;
+  }
+
+  .waves {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* Animación */
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+  }
+  .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+  .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+  .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+  .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+  
+  @keyframes move-forever {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header { min-height: 60vh; }
+    .waves-container { height: 80px; }
+  }
+</style>
 
         <!-- Descripción del programa -->
         <div id="descripcion" class="descripcion container-fluid px-5">
@@ -386,6 +472,8 @@
                     </div>
                 </div>
             </div>
+            <!-- SVG de fondo original -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" aria-hidden="true"><path fill="#0099ff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         </footer>
         </div>
 

@@ -73,8 +73,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 
 header {
   text-align: center;
-  margin-bottom: 70px;
-  padding: 100px 20px 60px;
+  padding: 0px 20px;
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 0%, transparent 80%);
   border-radius: 0;
   border: none;
@@ -117,18 +116,6 @@ header p {
   font-weight: 400 !important;
   letter-spacing: 0.5px;
   opacity: 0.9;
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: var(--primary-color);
-  opacity: 0.3;
 }
 
 @keyframes shineText {
@@ -373,6 +360,21 @@ body.dark-mode .card:hover {
   gap: 30px;
   transition: all 0.3s ease;
   box-shadow: var(--header-shadow);
+  position: relative; /* Fixed: allows absolute children */
+  overflow: hidden; /* Fixed: contains the SVG */
+  z-index: 1;
+}
+
+/* Specific static SVG background for footer */
+.contactos svg {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
 
 .contactos__titulo {
@@ -428,6 +430,13 @@ body.dark-mode .card:hover {
 }
 
 /* Responsive (Mobile/Tablets) */
+@media screen and (max-width: 991px) {
+  body.dark-mode {
+    background-image: none !important;
+    background-color: #07072e !important; /* Color sólido profundo acorde al tema */
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     background-attachment: scroll;
@@ -786,15 +795,30 @@ body:not(.dark-mode) .nav-theme-toggle {
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 991.98px) {
-  .nav-theme-toggle {
-    margin: 10px 0;
-    width: auto;
-    border-radius: 8px;
-    padding: 8px 15px;
-    justify-content: flex-start;
-  }
-  .nav-theme-toggle span {
-    margin-left: 10px;
-  }
+header, .header {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
 }
+
+.descripcion {
+  position: relative;
+  z-index: 5;
+  background-color: var(--bg-color);
+  padding-top: 50px;
+}
+
+.contactos {
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+  padding-bottom: 40px;
+}
+
+/* Redundant wave styles removed */
+

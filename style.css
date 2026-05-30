@@ -19,9 +19,9 @@ body {
   min-height: 75vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Centramos el contenido */
   align-items: center;
-  padding: 80px 0px 150px;
+  padding: 80px 0px 100px; /* Reducido el padding inferior para que no sea un bloque vacío */
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -31,6 +31,8 @@ body {
   max-width: 1200px;
   width: 100%;
   padding: 0px 10px;
+  position: relative;
+  z-index: 5; /* Asegura que el texto esté sobre el fondo base */
 }
 
 .university-title {
@@ -145,10 +147,11 @@ body {
 .content-two {
   width: 100%;
   line-height: 0;
-  margin-top: auto;
   position: absolute;
   bottom: -2px;
   left: 0;
+  z-index: 1; /* Al fondo del hero */
+  pointer-events: none; /* Evita que las olas bloqueen clics en botones */
 }
 
 .wave {
@@ -275,7 +278,7 @@ body {
 .search-bar {
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 1000; /* Aumentado para estar por encima del contenido del hero */
 }
 .navbar {
   font-family: math;
@@ -911,4 +914,3 @@ span:nth-child(4) {
 .contacto.revealed > .container > .mt-5 { transition-delay: 0.9s; }
 .contacto.revealed > .text-center { transition-delay: 0.95s; }
 .contacto.revealed > .text-center > p { transition-delay: 1.0s; }
-
