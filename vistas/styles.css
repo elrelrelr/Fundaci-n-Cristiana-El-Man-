@@ -96,11 +96,21 @@ header .titulo-curso {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent !important;
-  animation: shineText 3s linear infinite;
   display: inline-block;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
   cursor: pointer;
   letter-spacing: -1px;
+}
+
+/* Animación por defecto (Dark Mode) */
+body.dark-mode header .titulo-curso {
+  animation: shineText 3s linear infinite;
+}
+
+/* Animación mejorada y suave para Modo Claro */
+body:not(.dark-mode) header .titulo-curso {
+  animation: smoothFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
 }
 
 header .titulo-curso:hover {
@@ -123,6 +133,16 @@ header p {
     background-position: 200% center;
   }
 }
+
+@keyframes smoothFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 .volver-link {
   display: inline-flex;

@@ -1,17 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Bitter&display=swap");
 
+:root {
+  /* Light Mode - Refined High Contrast Palette */
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --text-muted: #4a4a4a;
+  --hero-bg: #f8faff;
+  --section-2-bg: #f0f4f8; /* Azul muy pálido */
+  --section-3-bg: #ffffff; /* Blanco */
+  --section-historia-bg: #f9f9f9; /* Gris casi blanco */
+  --section-experiencia-bg: #e9ecef; /* Un gris un poco más oscuro para diferenciar */
+  --card-bg: #ffffff;
+  --card-text: #1a1a1a;
+  --footer-bg: #0a192f;
+  --footer-text: #ffffff;
+}
+
+body.dark-mode {
+  --bg-color: #07072e;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --hero-bg: #07072e;
+  --section-2-bg: #07072ee8;
+  --section-3-bg: rgb(16 16 48);
+  --section-historia-bg: transparent; /* Mantiene el gradient original en dark */
+  --section-experiencia-bg: transparent;
+  --card-bg: #ffffff;
+  --card-text: #2d3436;
+  --footer-bg: #0a192f;
+  --footer-text: #ffffff;
+}
+
 /* General styles */
 html {
   scroll-behavior: smooth;
 }
 body {
   margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hero Section */
 .hero-section {
-  background-color: #0a192f;
-  /* Degradado como fallback mientras carga la imagen */
+  background-color: var(--hero-bg);
   background-image: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url("imagenes/fondo.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -21,10 +54,15 @@ body {
   flex-direction: column;
   justify-content: center; /* Centramos el contenido */
   align-items: center;
-  padding: 80px 0px 100px; /* Reducido el padding inferior para que no sea un bloque vacío */
+  padding: 80px 0px 100px;
   position: relative;
   overflow: hidden;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .hero-section {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("imagenes/fondo.png");
 }
 
 .content {
@@ -32,22 +70,35 @@ body {
   width: 100%;
   padding: 0px 10px;
   position: relative;
-  z-index: 5; /* Asegura que el texto esté sobre el fondo base */
+  z-index: 10; /* Elevado para estar siempre por encima de las olas (z-index 1) */
 }
 
 .university-title {
   font-family: "Montserrat", sans-serif;
-  color: white;
+  color: var(--text-color);
   margin-bottom: 20px;
   text-align: center;
 }
 
+body.dark-mode .university-title {
+  color: white;
+}
+
 .subtitle {
-  
   font-family: "Google Sans", sans-serif;
   font-size: 18px;
-  color: white;
+  color: var(--text-color);
   margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+body.dark-mode .subtitle {
+  color: white;
+}
+
+/* Forzar que los spans dentro de subtitle también hereden el color */
+.subtitle span {
+  color: inherit;
 }
 
 .futuristic-button {
@@ -71,7 +122,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  z-index: 1;
+  z-index: 20; /* Asegurar que sea clickeable sobre cualquier capa visual */
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -150,8 +201,8 @@ body {
   position: absolute;
   bottom: -2px;
   left: 0;
-  z-index: 1; /* Al fondo del hero */
-  pointer-events: none; /* Evita que las olas bloqueen clics en botones */
+  z-index: 1; /* Al fondo absoluto del Hero */
+  pointer-events: none;
 }
 
 .wave {
@@ -159,15 +210,21 @@ body {
   width: 100%;
 }
 
-/* Offcanvas dark theme */
+/* Offcanvas theme adaptability */
 #menuLateral {
-  background: linear-gradient(180deg, #07072e 0%, #0a192f 100%);
-  color: white;
+  background: var(--bg-color);
+  color: var(--text-color);
   border-right: 1px solid rgba(115, 226, 254, 0.15);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode #menuLateral {
+  background: linear-gradient(180deg, #07072e 0%, #0a192f 100%);
 }
 
 #menuLateral .nav-link {
-  color: rgba(255, 255, 255, 0.82) !important;
+  color: var(--text-color) !important;
+  opacity: 0.8;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   padding: 12px 4px;
@@ -176,9 +233,18 @@ body {
 }
 
 #menuLateral .nav-link:hover {
-  color: rgb(115, 226, 254) !important;
+  color: rgb(0, 143, 245) !important;
   padding-left: 10px;
 }
+
+body.dark-mode #menuLateral .nav-link {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+body.dark-mode #menuLateral .nav-link:hover {
+  color: rgb(115, 226, 254) !important;
+}
+
 
 #menuLateral .form-control {
   background: rgba(255, 255, 255, 0.08);
@@ -285,11 +351,18 @@ body {
   background-color: #008ff5;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: rgb(115 226 254) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: color 0.2s ease;
 }
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(115, 226, 254) !important;
+}
+
 .texto {
   color: white !important;
 }
+
 .menu-button {
   padding: 10px;
   background-color: #009688;
@@ -337,16 +410,45 @@ body {
   box-shadow: 0 0 10px rgb(0, 255, 255);
 }
 
+/* Theme toggle button styling */
+.nav-theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(115, 226, 254, 0.4);
+  color: white;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.nav-theme-toggle:hover {
+  background: rgba(115, 226, 254, 0.2);
+  border-color: rgb(115, 226, 254);
+  transform: scale(1.05);
+}
+
+body:not(.dark-mode) .nav-theme-toggle {
+  color: #f39c12;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
 /* Second Section */
 .second-section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #07072ee8;
-  color: white;
+  background-color: var(--section-2-bg);
+  color: var(--text-color);
   padding: 60px 20px;
   text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .second-title {
@@ -360,6 +462,10 @@ body {
   margin: 20px auto;
   font-size: 18px;
 }
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text) !important;
+}
 .card :hover{
   scale: 1.03;
   transition: 0.3s ease;
@@ -367,7 +473,7 @@ body {
 /* Estilos para los enlaces de los cursos */
 .course-link {
   display: inline-block;
-  color: #2c3e50;
+  color: var(--card-text);
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 500;
@@ -390,9 +496,10 @@ body {
   transform: scale(1.2);
 }
 
+/* Third Section (Quiénes somos) */
 .third-section {
   min-height: 100vh;
-  background-color: rgb(16 16 48);
+  background-color: var(--section-3-bg);
   background-image: url(imagenes/image.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -402,6 +509,21 @@ body {
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
+  color: var(--text-color) !important;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .third-section {
+    background-image: none;
+    color: #000000 !important;
+}
+
+body:not(.dark-mode) .third-section .third-title {
+    color: #000000 !important;
+}
+
+body:not(.dark-mode) .third-section .third-description {
+    color: #000000 !important;
 }
 
 .third-title {
@@ -410,8 +532,6 @@ body {
   margin-bottom: 20px;
   text-align: center;
 }
-
-
 
 .back-link {
   display: inline-flex;
@@ -503,6 +623,23 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 20px;
+  transition: background 0.3s ease;
+}
+
+body:not(.dark-mode) .historia {
+  background: var(--section-historia-bg);
+}
+
+body:not(.dark-mode) .historia .third-title {
+    color: #000000 !important; /* Forzar negro en modo claro */
+}
+
+body:not(.dark-mode) .historia-subtitle {
+  color: var(--text-muted);
+}
+
+body:not(.dark-mode) .historia-card p {
+    color: var(--text-color) !important;
 }
 
 .historia-subtitle {
@@ -550,6 +687,7 @@ body {
   color: rgba(255, 255, 255, 0.82) !important;
 }
 
+/* Experiencia Section */
 .experiencia {
   min-height: 100vh;
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(10, 25, 47, 0.95) 100%), url('imagenes/fondo.png');
@@ -561,7 +699,22 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 20px;
+  transition: background 0.3s ease;
 }
+
+body:not(.dark-mode) .experiencia {
+  background: #80b5eb61;
+}
+
+body:not(.dark-mode) .experiencia .third-title {
+    color: #000000 !important;
+}
+
+body:not(.dark-mode) .experiencia p {
+    color: #333333 !important; /* Texto oscuro para el subtítulo */
+    opacity: 1 !important;
+}
+
 .experiencia-header {
   z-index: 2;
 }
@@ -591,27 +744,32 @@ body {
   width: 2px;
   flex: 1;
   min-height: 40px;
-  background: linear-gradient(to bottom, transparent, rgba(115, 226, 254, 0.6));
+  background: linear-gradient(to bottom, transparent, rgba(0, 143, 245, 0.4));
   border-radius: 2px;
 }
 
 .year-line-bottom {
-  background: linear-gradient(to top, transparent, rgba(115, 226, 254, 0.6));
+  background: linear-gradient(to top, transparent, rgba(0, 143, 245, 0.4));
 }
 
 .year-number {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: clamp(22px, 3.5vw, 52px);
-  color: rgb(115, 226, 254);
+  color: #008ff5;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
   letter-spacing: 6px;
-  text-shadow: 0 0 18px rgba(115, 226, 254, 0.7), 0 0 40px rgba(0, 153, 255, 0.4);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 143, 245, 0.2);
+  transition: all 0.3s ease;
   user-select: none;
   padding: 16px 0;
+}
+
+body.dark-mode .year-number {
+  color: rgb(115, 226, 254);
+  text-shadow: 0 0 18px rgba(115, 226, 254, 0.7), 0 0 40px rgba(0, 153, 255, 0.4);
 }
 
 .year-number.fading {
@@ -638,10 +796,10 @@ body {
     min-height: 2px;
     height: 2px;
     flex: 1;
-    background: linear-gradient(to right, transparent, rgba(115, 226, 254, 0.6));
+    background: linear-gradient(to right, transparent, rgba(0, 143, 245, 0.4));
   }
   .year-line-bottom {
-    background: linear-gradient(to left, transparent, rgba(115, 226, 254, 0.6));
+    background: linear-gradient(to left, transparent, rgba(0, 143, 245, 0.4));
   }
   .year-number {
     writing-mode: horizontal-tb;
@@ -660,20 +818,27 @@ body {
   width: 100%;
   max-width: 1000px;
   border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 255, 0.15);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .imagenes {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .imagenes img {
   object-fit: cover;
   height: 500px;
   border-radius: 20px;
 }
 
+/* Contacto / Footer */
 .contacto {
   min-height: 100vh;
-  background-color: #0a192f;
-  color: white;
+  background-color: var(--footer-bg);
+  color: #ffffff !important; /* Siempre blanco porque el fondo del footer es oscuro */
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -681,7 +846,17 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
+
+.contacto h3, .contacto p, .contacto li, .contacto span, .contacto a:not(.futuristic-button) {
+    color: #ffffff !important; /* Forzar blanco en el footer oscuro */
+}
+
+.contacto .back-link {
+    color: #1a1a2e !important; /* El cohete mantiene su color oscuro original */
+}
+
 
 .contacto h3 {
   font-family: "Montserrat", sans-serif;
@@ -784,7 +959,7 @@ span:nth-child(4) {
 }
 
 .coin-front, .coin-back {
-  background: linear-gradient(44deg, rgba(25, 135, 84, 1) 50%, rgba(0, 255, 153, 1) 100%) !important;
+  background: linear-gradient(44deg, rgba(25, 135, 84, 1) 50%, rgba(0, 25, 153, 1) 100%) !important;
   width: 100%;
   height: 100%;
   position: absolute;

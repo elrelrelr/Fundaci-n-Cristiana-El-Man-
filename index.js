@@ -1,3 +1,48 @@
+// ── Lógica de Modo Oscuro / Claro ───────────────────────────
+(function () {
+  const themeToggleButtons = document.querySelectorAll('.nav-theme-toggle');
+  const body = document.body;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggleButtons.forEach(btn => {
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.classList.remove('bi-moon-stars-fill');
+          icon.classList.add('bi-sun-fill');
+        }
+      });
+    } else {
+      body.classList.remove('dark-mode');
+      themeToggleButtons.forEach(btn => {
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.classList.remove('bi-sun-fill');
+          icon.classList.add('bi-moon-stars-fill');
+        }
+      });
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  // El inicio por defecto es modo oscuro (comportamiento original)
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    applyTheme('light');
+  } else {
+    // Si no hay tema guardado o es dark, aplicamos dark por defecto
+    applyTheme('dark');
+  }
+
+  themeToggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-mode');
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  });
+})();
+
 // Separar cada palabra en un contenedor y cada letra en un span para efectos individuales
 document.addEventListener("DOMContentLoaded", function () {
   const text = document.querySelector(".animated-text");
