@@ -20,8 +20,8 @@
 </head>
 
 <body>
-  <!-- Navbar para teléfonos y tablets (oculto en lg+) -->
-  <nav class="navbar navbar-dark d-lg-none" id="phoneNavbar">
+  <!-- Navbar para teléfonos y tablets (oculto en xl+) -->
+  <nav class="navbar navbar-dark d-xl-none" id="phoneNavbar">
     <!-- Overlay de búsqueda -->
     <div class="phone-search-overlay" id="phoneSearchOverlay">
       <input class="phone-search-input" type="search" placeholder="Buscar en la página..." id="phoneSearchInput"
@@ -40,7 +40,7 @@
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center flex-shrink-0 me-auto" href="#" style="padding:4px 0;">
         <img src="imagenes/logo.png" alt="Logo-De-Unimaná" width="60" height="40" class="me-1">
-        <span class="fw-bold unimana-title" style="font-size:1.5rem;letter-spacing:.5px;">UNIMANÁ</span>
+        <span class="fw-bold unimana-title d-none d-md-inline" style="font-size:1.5rem;letter-spacing:.5px;">UNIMANÁ</span>
       </a>
       <!-- Botón Tema (Móvil) -->
       <button class="nav-theme-toggle me-2" aria-label="Cambiar tema">
@@ -83,8 +83,8 @@
     </div>
   </div>
   <!-- Barra de busqueda -->
-  <section class="search-bar d-none d-lg-block">
-    <nav class="navbar navbar-expand-lg navbar-light">
+  <section class="search-bar d-none d-xl-block">
+    <nav class="navbar navbar-expand-xl navbar-light">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,7 @@
             class="d-inline-block align-text-top">
 
         </a>
-        <a class="navbar-brand texto Light" href="#">Unimaná</a>
+        <a class="navbar-brand texto Light d-none d-md-inline-block" href="#">Unimaná</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -498,8 +498,7 @@
             <li class="mb-3"><strong>Buenaventura</strong> - Valle del Cauca, Colombia</li>
             <li class="mb-3"><strong>Barranquilla</strong> - Atlantico, Colombia</li>
             <li class="mb-3"><strong>Bucaramanga</strong> - Santander, Colombia</li>
-            <li class="mb-3 d-flex align-items-center"><i
-                class="bi bi-laptop text-primary me-2"></i><span><strong>Alcance Global</strong> - Modalidad
+            <li class="mb-3 d-flex align-items-center"><span><strong>Alcance Global</strong> - Modalidad
                 Virtual</span></li>
           </ul>
         </div>

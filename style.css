@@ -347,7 +347,7 @@ body.dark-mode #menuLateral .nav-link:hover {
   z-index: 1000; /* Aumentado para estar por encima del contenido del hero */
 }
 .navbar {
-  font-family: math;
+
   background-color: #008ff5;
 }
 .navbar-light .navbar-nav .nav-link {
@@ -910,21 +910,29 @@ span:nth-child(4) {
 .hola p {
   align-self: flex-end;
 }
-.facebook :hover{
-  color: #1877F2;
-  font-size: 1.2em;
+.facebook, .youtube, .whatsapp, .pdf {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
 }
-.youtube :hover{
-  color: #FF0000;
-  font-size: 1.2em;
+.facebook:hover {
+  color: #1877F2 !important;
+  transform: translateY(-5px) scale(1.2);
+  text-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
 }
-.whatsapp :hover{
-  color: #25D366;
-  font-size: 1.2em;
+.youtube:hover {
+  color: #FF0000 !important;
+  transform: translateY(-5px) scale(1.2);
+  text-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
-.pdf :hover{
-  color: #fdf800;
-  font-size: 1.2em;
+.whatsapp:hover {
+  color: #25D366 !important;
+  transform: translateY(-5px) scale(1.2);
+  text-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+.pdf:hover {
+  color: #fdf800 !important;
+  transform: translateY(-5px) scale(1.2);
+  text-shadow: 0 5px 15px rgba(253, 248, 0, 0.4);
 }
 
 @media screen and (max-width: 768px) {
@@ -959,7 +967,7 @@ span:nth-child(4) {
 }
 
 .coin-front, .coin-back {
-  background: linear-gradient(44deg, rgba(25, 135, 84, 1) 50%, rgba(0, 25, 153, 1) 100%) !important;
+  background: linear-gradient(44deg, #25D366 0%, #128C7E 100%) !important;
   width: 100%;
   height: 100%;
   position: absolute;
